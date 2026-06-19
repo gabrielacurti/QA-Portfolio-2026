@@ -1,7 +1,7 @@
 # 🔐 Casos de Teste - Login
 
 **Feature:** Login  
-**Projeto:** QA Portfolio — Mercado Livre  
+**Projeto:** QA Portfolio - Mercado Livre  
 **Total de casos:** 14  
 
 ---
