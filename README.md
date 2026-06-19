@@ -6,7 +6,7 @@ Portfólio de Quality Assurance desenvolvido com foco em testes manuais, documen
 
 ## 👩‍💻 Sobre mim
 
-Sou Gabriela Curti Masse, analista de QA com habilidades práticas em testes manuais e automação. Tenho base em e-commerce e operações em marketplaces (Mercado Livre, Shopee), o que me deu uma visão prática do negócio por dentro — entender o comportamento real do usuário, antecipar falhas de usabilidade e comunicar bugs com contexto.
+Sou Gabriela Curti Masse, analista de QA com habilidades práticas em testes manuais e automação. Tenho base em e-commerce e operações em marketplaces (Mercado Livre, Shopee), o que me deu uma visão prática do negócio por dentro, entender o comportamento real do usuário, antecipar falhas de usabilidade e comunicar bugs com contexto.
 
 Esse portfólio aplica esse conhecimento em um projeto end-to-end de testes manuais, simulando o ambiente real de uma squad de qualidade.
 
