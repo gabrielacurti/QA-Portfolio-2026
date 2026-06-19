@@ -23,7 +23,7 @@ Projeto de testes aplicados ao **Mercado Livre**, cobrindo as principais jornada
 - 🛒 Carrinho
 - ✅ Checkout
 
-**Total:** 60 casos de teste | 3 bugs reportados | 1 Sprint concluída
+**Total:** 56 casos de teste | 3 bugs reportados | 1 Sprint concluída
 
 ---
 
