@@ -1,4 +1,4 @@
-# 📋 Regras de Negócio — Mercado Livre
+# 📋 Regras de Negócio - Mercado Livre
 
 Levantamento das regras de negócio mapeadas antes da execução dos testes, cobrindo as principais funcionalidades do fluxo de compra do Mercado Livre.
 
