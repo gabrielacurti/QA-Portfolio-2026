@@ -30,9 +30,10 @@ Projeto de testes aplicados ao **Mercado Livre**, cobrindo as principais jornada
 ## 📂 Estrutura do repositório
 
 | Pasta | Conteúdo |
-|-------|----------|
+|---|---|
+| `regras-de-negocio/` | Regras de negócio mapeadas por feature |
 | `casos-de-teste/` | Casos de teste por feature (positivos, negativos e edge cases) |
-| `bug-reports/` | Bugs documentados com evidências |
+| `bug-reports/` | Bugs documentados com evidências |   
 | `test-report/` | Relatório de execução da Sprint 1 |
 
 ---
