@@ -2,42 +2,45 @@
 
 **Feature:** Checkout  
 **Projeto:** QA Portfolio - Mercado Livre  
-**Total de casos:** 9  
+**Total de casos:** 12  
 
 ---
 
 ## Pré-condições
-Usuário com produto(s) no carrinho. Endereço de entrega cadastrado. Forma de pagamento válida disponível.
+Usuário logado. Produto adicionado ao carrinho. Endereço de entrega cadastrado na conta.
 
 ---
 
 ## 🟢 Fluxo Positivo
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CHECKOUT-001 | Finalizar compra com usuário autenticado | 1. Estar logado com produto no carrinho 2. Acessar checkout 3. Selecionar endereço e forma de pagamento 4. Confirmar compra | Pedido criado com sucesso; tela de confirmação exibida | ✅ Passou | Pedido criado e confirmação exibida com número do pedido. |
-| CT-CHECKOUT-002 | Selecionar endereço de entrega cadastrado | 1. Acessar checkout 2. Selecionar endereço já cadastrado | Endereço selecionado exibido corretamente na revisão do pedido | ✅ Passou | Endereço exibido corretamente na etapa de revisão. |
-| CT-CHECKOUT-003 | Selecionar forma de pagamento válida | 1. Acessar checkout 2. Selecionar cartão de crédito cadastrado | Forma de pagamento selecionada exibida na revisão do pedido | ✅ Passou | Forma de pagamento exibida corretamente. |
-| CT-CHECKOUT-004 | Confirmar pedido com pagamento aprovado | 1. Completar etapas do checkout 2. Confirmar pagamento | Pedido criado; status "Aprovado" exibido | ✅ Passou | Pedido criado com status de pagamento aprovado. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CHECK-001 | Iniciar checkout estando logado | Usuário direcionado para o checkout sem bloqueio; etapas de endereço e pagamento exibidas | ✅ Passou | Usuário direcionado a uma página oferecendo garantia estendida para a compra; opção de continuar sem essa garantia disponível no cabeçalho. Não é bug, é uma nova opção do Meli. |
+| CT-CHECK-002 | Selecionar endereço de entrega cadastrado | Endereço selecionado com sucesso; prazo e frete atualizados | ✅ Passou | Além de entrega no endereço, também aparecem opções "Retirar na agência Mercado Livre" e "Retirar com o vendedor" (quando vendedor é da mesma cidade). |
+| CT-CHECK-003 | Adicionar novo endereço de entrega no checkout | Novo endereço salvo e selecionado; frete recalculado | ✅ Passou | Novo endereço salvo e selecionado como destino; frete recalculado corretamente. |
+| CT-CHECK-004 | Finalizar compra com cartão | Pedido criado; número exibido; e-mail de confirmação enviado | ✅ Passou | Pedido criado com sucesso, número exibido e e-mail de confirmação enviado. |
+| CT-CHECK-005 | Finalizar compra com Pix | QR Code e chave Pix gerados; prazo de validade exibido; pedido aguardando pagamento | ✅ Passou | QR Code e chave Pix gerados corretamente; e-mail enviado avisando sobre a espera do pagamento via Pix. |
 
 ---
 
 ## 🔴 Fluxo Negativo
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CHECKOUT-005 | Tentar finalizar checkout sem estar autenticado | 1. Acessar checkout sem login 2. Tentar avançar | Sistema redireciona para tela de login | ✅ Passou | Usuário redirecionado para login antes de continuar. |
-| CT-CHECKOUT-006 | Tentar finalizar compra sem selecionar endereço | 1. Acessar checkout sem endereço cadastrado 2. Tentar confirmar pedido | Sistema impede; solicita cadastro de endereço | ✅ Passou | Sistema bloqueou avanço e solicitou endereço. |
-| CT-CHECKOUT-007 | Finalizar compra com pagamento recusado | 1. Completar checkout 2. Usar cartão com saldo insuficiente ou recusado pela operadora | Pedido não finalizado; mensagem de pagamento recusado | ✅ Passou | Mensagem de pagamento recusado exibida; pedido não foi criado. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CHECK-006 | Adicionar produto sem estar logado | Usuário redirecionado para página de login | ✅ Passou | Usuário redirecionado para página de login. |
+| CT-CHECK-007 | Tentar avançar no checkout sem selecionar endereço | Sistema bloqueia o avanço; mensagem de validação exibida | 🔒 Bloqueado | Sistema seleciona automaticamente um endereço cadastrado do usuário; não é possível testar o cenário sem endereço por esse comportamento. |
+| CT-CHECK-008 | Pagamento recusado por dados de cartão inválidos | Pagamento recusado; mensagem de erro; pedido não criado | ✅ Passou | Sistema bloqueia a confirmação e direciona para página solicitando autorização com o banco; oferece opções de tentar outra forma de pagamento ou reinserir código de segurança. |
+| CT-CHECK-009 | Tentar finalizar checkout sem selecionar forma de pagamento | Sistema bloqueia a confirmação; mensagem de validação exibida | 🆕 Novo | Caso de teste a ser executado/validado — ainda não testado em ambiente. |
 
 ---
 
 ## 🟡 Edge Cases
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CHECKOUT-008 | Atualizar carrinho durante o checkout (outra aba) | 1. Iniciar checkout em uma aba 2. Em outra aba, remover item do mesmo carrinho 3. Voltar e tentar confirmar pedido | Sistema detecta alteração e atualiza o resumo do pedido antes de confirmar | ✅ Passou | Sistema atualizou o resumo do pedido refletindo a alteração feita na outra aba. |
-| CT-CHECKOUT-009 | Tentar finalizar compra com produto que ficou sem estoque durante o checkout | 1. Iniciar checkout com produto em estoque 2. Produto esgota durante o processo (simulado) 3. Tentar confirmar pedido | Sistema informa indisponibilidade antes de concluir a compra | ✅ Passou | Mensagem de indisponibilidade exibida antes da confirmação final. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CHECK-010 | Produto esgota durante o checkout | Sistema alerta indisponibilidade; pedido não finalizado | ✅ Passou | Pedido não finalizado; usuário direcionado a página com mensagem informando indisponibilidade do produto. |
+| CT-CHECK-011 | Pix não pago dentro do prazo de validade | Pedido cancelado automaticamente; estoque liberado; usuário notificado | ✅ Passou | Pedido cancelado automaticamente após expiração; estoque liberado; usuário notificado por e-mail e notificação do app. |
+| CT-CHECK-012 | Voltar ao carrinho durante o checkout e retomar | Informações da compra preservadas; dados de pagamento podem exigir novo preenchimento | ✅ Passou | Produto, endereço e demais informações preservados; dados de pagamento foram removidos e precisaram ser preenchidos novamente. |
 
 ---
 
@@ -45,7 +48,7 @@ Usuário com produto(s) no carrinho. Endereço de entrega cadastrado. Forma de p
 
 | Status | Quantidade |
 |--------|------------|
-| ✅ Passou | 9 |
-| ❌ Falhou | 0 |
-| 🔒 Bloqueado | 0 |
-| **Total** | **9** |
+| ✅ Passou | 10 |
+| 🔒 Bloqueado | 1 |
+| 🆕 Novo (não executado) | 1 |
+| **Total** | **12** |
