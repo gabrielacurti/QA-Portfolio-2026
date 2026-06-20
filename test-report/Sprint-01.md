@@ -1,4 +1,4 @@
-# 📊 Test Report - Sprint 1
+# 📊 Test Report — Sprint 1
 
 **Projeto:** QA Portfolio — Mercado Livre  
 **Sprint:** Sprint 1  
@@ -10,20 +10,20 @@
 
 ## 📌 Resumo Executivo
 
-A Sprint 1 cobriu o fluxo completo de compra do Mercado Livre, com execução de **51 casos de teste** distribuídos em 5 funcionalidades principais. Foram identificados **3 bugs reais** no sistema em produção, todos relacionados ao módulo de Busca de Produto.
+A Sprint 1 cobriu o fluxo completo de compra do Mercado Livre, com execução de **56 casos de teste** distribuídos em 5 funcionalidades principais. Foram identificados **3 bugs reais** no sistema em produção, todos relacionados ao módulo de Busca de Produto.
 
 ---
 
 ## 📈 Status Geral dos Casos de Teste
 
-| Feature | Total de Casos | ✅ Passou | ❌ Falhou | 🔒 Bloqueado |
-|---------|----------------|-----------|-----------|--------------|
-| Login | 14 | 7 | 5 | 2 |
-| Busca de Produto | 10 | 7 | 3 | 0 |
-| Frete | 9 | 9 | 0 | 0 |
-| Carrinho | 9 | 9 | 0 | 0 |
-| Checkout | 9 | 9 | 0 | 0 |
-| **Total** | **51** | **41** | **8** | **2** |
+| Feature | Total de Casos | ✅ Passou | ❌ Falhou | 🔒 Bloqueado | 🆕 Novo |
+|---------|----------------|-----------|-----------|--------------|---------|
+| Login | 14 | 8 | 6 | 0 | 0 |
+| Busca de Produto | 10 | 7 | 3 | 0 | 0 |
+| Frete | 9 | 9 | 0 | 0 | 0 |
+| Carrinho | 11 | 11 | 0 | 0 | 0 |
+| Checkout | 12 | 10 | 0 | 1 | 1 |
+| **Total** | **56** | **45** | **9** | **1** | **1** |
 
 **Taxa de aprovação geral:** ~80%
 
@@ -46,13 +46,16 @@ A Sprint 1 cobriu o fluxo completo de compra do Mercado Livre, com execução de
 ## 🔎 Observações por Feature
 
 ### 🔐 Login
-Maior concentração de falhas da sprint, majoritariamente ligadas a mensagens de sistema divergentes do esperado (ex: reCAPTCHA e fluxo de autenticação multifator não documentados previamente nas regras de negócio).
+Maior concentração de falhas da sprint, majoritariamente ligadas a mensagens de sistema divergentes do esperado (reCAPTCHA e fluxo de autenticação multifator não previstos nas regras de negócio originais).
 
 ### 🔍 Busca de Produto
 Feature com maior criticidade: todos os 3 bugs da sprint estão concentrados aqui. Padrão recorrente identificado — o sistema utiliza anúncios de serviços como fallback ao invés de tratar adequadamente buscas sem resultado ou com entrada inválida.
 
-### 🚚 Frete, 🛒 Carrinho e ✅ Checkout
+### 🚚 Frete e 🛒 Carrinho
 100% de aprovação nos casos executados. Nenhum bug encontrado nesses fluxos durante a sprint.
+
+### ✅ Checkout
+Alto índice de aprovação. Um caso foi bloqueado pelo próprio comportamento do sistema (seleção automática de endereço impede testar o cenário sem endereço cadastrado) e um caso permanece pendente de execução.
 
 ---
 
