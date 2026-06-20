@@ -1,4 +1,4 @@
-# QA Portfolio — Mercado Livre
+# QA Portfolio - Mercado Livre
 
 Portfólio de Quality Assurance desenvolvido com foco em testes manuais, documentação de bugs e organização ágil com Jira Scrum.
 
