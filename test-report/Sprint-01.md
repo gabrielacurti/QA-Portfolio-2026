@@ -1,6 +1,6 @@
-# 📊 Test Report — Sprint 1
+# 📊 Test Report - Sprint 1
 
-**Projeto:** QA Portfolio — Mercado Livre  
+**Projeto:** QA Portfolio - Mercado Livre  
 **Sprint:** Sprint 1  
 **Board:** [Jira — SCRUM](https://gabrielacurti.atlassian.net/jira/software/projects/SCRUM/boards/1)  
 **Período:** Execução em 10 dias  
@@ -49,7 +49,7 @@ A Sprint 1 cobriu o fluxo completo de compra do Mercado Livre, com execução de
 Maior concentração de falhas da sprint, majoritariamente ligadas a mensagens de sistema divergentes do esperado (reCAPTCHA e fluxo de autenticação multifator não previstos nas regras de negócio originais).
 
 ### 🔍 Busca de Produto
-Feature com maior criticidade: todos os 3 bugs da sprint estão concentrados aqui. Padrão recorrente identificado — o sistema utiliza anúncios de serviços como fallback ao invés de tratar adequadamente buscas sem resultado ou com entrada inválida.
+Feature com maior criticidade: todos os 3 bugs da sprint estão concentrados aqui. Padrão recorrente identificado, o sistema utiliza anúncios de serviços como fallback ao invés de tratar adequadamente buscas sem resultado ou com entrada inválida.
 
 ### 🚚 Frete e 🛒 Carrinho
 100% de aprovação nos casos executados. Nenhum bug encontrado nesses fluxos durante a sprint.
@@ -61,7 +61,7 @@ Alto índice de aprovação. Um caso foi bloqueado pelo próprio comportamento d
 
 ## ✅ Conclusão
 
-A sprint validou com sucesso o fluxo de compra ponta a ponta do Mercado Livre. O módulo de Busca de Produto se destacou como ponto de atenção prioritário para a próxima sprint, concentrando 100% dos defeitos identificados — recomenda-se priorização de correção nesse módulo.
+A sprint validou com sucesso o fluxo de compra ponta a ponta do Mercado Livre. O módulo de Busca de Produto se destacou como ponto de atenção prioritário para a próxima sprint, concentrando 100% dos defeitos identificados, recomenda-se priorização de correção nesse módulo.
 
 ---
 
