@@ -16,7 +16,7 @@ Acessar a página de Login do Mercado Livre.
 | ID | Título | Resultado Esperado | Status | Resultado Encontrado |
 |----|--------|---------------------|--------|------------------------|
 | CT-LOGIN-001 | Login com e-mail e senha válidos | Usuário direcionado para página inicial já logado | ❌ Falhou | Sistema solicitou terceira verificação por reconhecimento facial. Novo CT criado: CT-LOGIN-013 |
-| CT-LOGIN-002 | Recuperação de senha com e-mail válido | Usuário redirecionado para página de informar e-mail cadastrado | ❌ Falhou | reCAPTCHA solicitado após inserir o e-mail, impedindo seguir sem completar a verificação. Novo CT criado: CT-LOGIN-015 |
+| CT-LOGIN-002 | Recuperação de senha com e-mail válido | Usuário redirecionado para página de informar e-mail cadastrado | ❌ Falhou | reCAPTCHA solicitado após inserir o e-mail, impedindo seguir sem completar a verificação. |
 
 ---
 
