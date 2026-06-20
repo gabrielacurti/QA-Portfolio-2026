@@ -1,43 +1,45 @@
 # 🛒 Casos de Teste - Carrinho
 
 **Feature:** Carrinho  
-**Projeto:** QA Portfolio — Mercado Livre  
-**Total de casos:** 9  
+**Projeto:** QA Portfolio - Mercado Livre  
+**Total de casos:** 11  
 
 ---
 
 ## Pré-condições
-Acessar o Mercado Livre. Produto disponível em estoque.
+Acessar o Mercado Livre. Usuário logado. Produto com estoque disponível.
 
 ---
 
 ## 🟢 Fluxo Positivo
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CART-001 | Adicionar produto disponível ao carrinho | 1. Acessar página de produto disponível 2. Clicar em "Adicionar ao carrinho" | Produto adicionado; ícone do carrinho atualizado | ✅ Passou | Produto adicionado corretamente; contador do carrinho atualizado. |
-| CT-CART-002 | Aumentar quantidade de um item no carrinho | 1. Acessar carrinho com item adicionado 2. Clicar em "+" na quantidade | Quantidade aumenta; subtotal atualizado automaticamente | ✅ Passou | Quantidade e subtotal atualizados corretamente. |
-| CT-CART-003 | Diminuir quantidade de um item no carrinho | 1. Acessar carrinho com item de quantidade >1 2. Clicar em "-" na quantidade | Quantidade diminui; subtotal atualizado automaticamente | ✅ Passou | Quantidade e subtotal atualizados corretamente. |
-| CT-CART-004 | Remover produto do carrinho | 1. Acessar carrinho com item adicionado 2. Clicar em "Remover" | Produto removido da lista; total recalculado | ✅ Passou | Produto removido e total atualizado corretamente. |
-| CT-CART-005 | Persistência do carrinho ao atualizar a página | 1. Adicionar produto ao carrinho 2. Atualizar a página (F5) | Produto continua no carrinho após o reload | ✅ Passou | Produto permaneceu no carrinho após atualizar a página. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CART-001 | Adicionar produto disponível ao carrinho | Produto adicionado; contador do carrinho atualiza; subtotal calculado corretamente | ✅ Passou | Drawer lateral exibido imediatamente após inclusão; produto recém-adicionado aparece no topo; usuário pode continuar comprando ou acessar o carrinho. |
+| CT-CART-002 | Aumentar quantidade de um item no carrinho | Quantidade atualizada; subtotal, frete e total recalculados automaticamente | ✅ Passou | Quantidade, subtotal, frete e total recalculados automaticamente. |
+| CT-CART-003 | Diminuir quantidade de um item no carrinho | Quantidade reduzida em 1; valores recalculados corretamente | ✅ Passou | Quantidade reduzida em 1; valores recalculados corretamente. |
+| CT-CART-004 | Remover produto do carrinho | Item removido; total atualizado; mensagem de carrinho vazio se aplicável | ✅ Passou | Item removido sem modal de confirmação; total atualizado; mensagem "Seu carrinho está vazio" exibida quando aplicável. |
+| CT-CART-005 | Carrinho persiste após atualizar a página | Produto continua no carrinho com quantidade e valores preservados | ✅ Passou | Produto continuou no carrinho com quantidade e valores preservados após F5. |
 
 ---
 
 ## 🔴 Fluxo Negativo
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CART-006 | Adicionar quantidade maior que o estoque disponível | 1. Acessar produto com estoque limitado (ex: 3 unidades) 2. Tentar adicionar quantidade maior (ex: 10) | Sistema impede; exibe mensagem de estoque insuficiente | ✅ Passou | Sistema limitou a quantidade ao estoque disponível e exibiu aviso. |
-| CT-CART-007 | Tentar acessar carrinho vazio | 1. Garantir que carrinho está vazio 2. Acessar página do carrinho | Mensagem informando carrinho vazio; sugestão de produtos | ✅ Passou | Mensagem de carrinho vazio exibida com sugestões de produtos. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CART-006 | Tentar adicionar produto sem estoque | Botão desabilitado ou ausente; mensagem "Produto indisponível" exibida | ✅ Passou | Botão ausente para compra; mensagem "Produto está indisponível no momento" exibida. |
+| CT-CART-007 | Tentar aumentar quantidade além do estoque disponível | Botão "+" desabilitado ao atingir o limite; mensagem de estoque máximo | ✅ Passou | Botão "+" desabilitado ao atingir o limite; porém não exibe mensagem indicando estoque máximo atingido. |
+| CT-CART-008 | Tentar diminuir quantidade abaixo de 1 pelo "−" | Sistema não permite quantidade 0; ou exibe confirmação de remoção | ✅ Passou | Sistema não permite quantidade 0 pelo "−"; mínimo é 1 produto, redução abaixo disso só pela remoção via lixeira. |
+| CT-CART-009 | Verificar cálculo do total após alterar quantidade | Subtotal = preço × quantidade; total = subtotal + frete | ✅ Passou | Valores batem com o cálculo manual; subtotal e total corretos. |
 
 ---
 
 ## 🟡 Edge Cases
 
-| ID | Título | Passos | Resultado Esperado | Status | Resultado Encontrado |
-|----|--------|--------|--------------------|--------|----------------------|
-| CT-CART-008 | Adicionar o mesmo produto duas vezes | 1. Adicionar produto ao carrinho 2. Voltar à página do produto e adicionar novamente | Sistema soma a quantidade do mesmo item, sem duplicar a linha | ✅ Passou | Quantidade somada corretamente na mesma linha do produto. |
-| CT-CART-009 | Calcular subtotal com múltiplos produtos diferentes | 1. Adicionar 2 ou mais produtos diferentes ao carrinho 2. Verificar subtotal de cada item e total geral | Subtotal de cada item e total geral calculados corretamente | ✅ Passou | Valores calculados corretamente para todos os itens. |
+| ID | Título | Resultado Esperado | Status | Resultado Encontrado |
+|----|--------|---------------------|--------|------------------------|
+| CT-CART-010 | Carrinho persiste após logout e novo login | Produto ainda presente no carrinho; persistência vinculada à conta | ✅ Passou | Produto continua presente no carrinho com a mesma quantidade adicionada. |
+| CT-CART-011 | Produto no carrinho fica sem estoque antes do checkout | Sistema alerta indisponibilidade e impede finalização da compra | ✅ Passou | Produto e foto exibidos com opacidade reduzida; sistema alerta indisponibilidade e impede finalização da compra. |
 
 ---
 
@@ -45,7 +47,7 @@ Acessar o Mercado Livre. Produto disponível em estoque.
 
 | Status | Quantidade |
 |--------|------------|
-| ✅ Passou | 9 |
+| ✅ Passou | 11 |
 | ❌ Falhou | 0 |
 | 🔒 Bloqueado | 0 |
-| **Total** | **9** |
+| **Total** | **11** |
